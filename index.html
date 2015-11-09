@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Wann ist Feierabend?</title>
+  </head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+  <link href='css/animate.css' rel='stylesheet' type='text/css'>
+  <link href='css/style.css' rel='stylesheet' type='text/css'>
+  <body>
+    <!--<div class="fullscreen-bg">
+    <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+        <source src="bg.mp4" type="video/mp4">
+    </video>
+  </div>-->
+
+    <div class="container">
+      <div class="content animated zoomInDown">
+        <div class="definition">
+          <h1>Feierabend</h1>
+          <p class="pronounciation">
+            /ˈfaɪ̯ɐˌʔaːbənt/
+          </p>
+          <p class="category">
+            Substantiv
+          </p>
+          <p class="description">
+            <i class="fa fa-info-circle"></i> Zeitspanne oder Zeitpunkt des Arbeitsendes
+          </p>
+        </div>
+        <div class="control">
+          <p>
+            Ankunft:<br>
+            <input type="text" id="hour_in"> : <input type="text" id="minute_in">
+          </p>
+          <p>
+            Arbeitszeit:<br>
+            <input type="text" id="hours_required" value="8">h <input type="text" id="minutes_required" value="0">min
+          </p>
+        </div>
+        <div class="output">
+          <span class="time" id="finishing_at">18:44</span><br>
+          <div class="progressbar"><div class="progress" id="time_progress"></div></div>
+          <span class="details" id="finishing_in">in 4 Stunden 23 Minuten</span>
+        </div>
+
+        <!--<div class="calculator">
+          gekommen: 00<br>
+          pause: 00<br>
+          arbeitszeit: 00<br>
+        </div>-->
+
+      </div>
+    </div>
+    <div id="footer">Impressum</div>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="js/piecon.min.js"></script>
+    <script src="js/timetrack.js"></script>
+  </body>
+</html>
