@@ -29,11 +29,18 @@ $(document).ready(function() {
         var remaining_time = new Date(end_time-now);
 
         var percent_done=(required_time-remaining_time)/required_time*100;
-        console.log(percent_done);
-        $("#time_progress").css("width", percent_done+"%");
+
         $("#in_time").html(pad(diff.getUTCHours())+" Stunden<br>"+pad(diff.getUTCMinutes())+" Minuten<br>"+pad(diff.getUTCSeconds())+ " Sekunden");
         $("#finishing_at").text(pad(end_time.getHours())+":"+pad(end_time.getMinutes()));
-        $("#finishing_in").html("in&nbsp;"+pad(remaining_time.getUTCHours())+"&nbsp;Stunden "+pad(remaining_time.getUTCMinutes())+"&nbsp;Minuten ");
+        if (Math.round(percent_done) < 100) {
+          $("#time_progress").css("width", percent_done+"%");
+          $("#finishing_in").html("in&nbsp;"+pad(remaining_time.getUTCHours())+"&nbsp;Stunden "+pad(remaining_time.getUTCMinutes())+"&nbsp;Minuten ");
+        } else {
+          $("#time_progress").css("width", "100%");
+          remaining_time = new Date(now-end_time);
+          $("#finishing_in").html("vor&nbsp;"+pad(remaining_time.getUTCHours())+"&nbsp;Stunden "+pad(remaining_time.getUTCMinutes())+"&nbsp;Minuten ");
+
+        }
         $("title").text(pad(remaining_time.getUTCHours())+":"+pad(remaining_time.getUTCMinutes())+" bis Feierabend");
 
         Piecon.setOptions({
