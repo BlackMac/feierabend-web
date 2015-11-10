@@ -76,7 +76,7 @@ div.content {
   padding: 0;
 }
 div.definition {
-  padding:40px 120px 35px 0;
+  padding:40px 0 35px 120px;
   float:left;
 }
 
