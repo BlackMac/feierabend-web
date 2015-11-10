@@ -29,6 +29,7 @@
           </p>
         </div>
         <div class="control">
+          <i class="fa fa-pencil-square-o handle"></i>
           <p>
             Ankunft:<br>
             <input type="text" id="hour_in"> : <input type="text" id="minute_in">
@@ -42,6 +43,30 @@
           <span class="time" id="finishing_at">18:44</span><br>
           <div class="progressbar"><div class="progress" id="time_progress"></div></div>
           <span class="details" id="finishing_in">in 4 Stunden 23 Minuten</span>
+          <div class="social">
+            <div class="share">
+              <a class="twitter-share-button" href="javascript:shareTwitter();">
+                <i class="fa fa-twitter-square"></i>
+              </a>
+              <span class="label">bei <strong>twitter</strong> posten</span>
+            </div>
+            <div class="share">
+              <i class="fa fa-facebook-square"></i>
+              <span class="label">über <strong>facebook</strong> mitteilen</span>
+            </div>
+            <div class="share">
+              <i class="fa fa-google-plus-square"></i>
+              <span class="label">mit <strong>google+</strong> veröffentlichen</span>
+            </div>
+            <div class="share">
+              <i class="fa fa-envelope-square"></i>
+              <span class="label">als <strong>mail</strong> verschicken</span>
+            </div>
+            <div class="share">
+              <i class="fa fa-phone-square"></i>
+              <span class="label">per <strong>SMS</strong> teilen</span>
+            </div>
+          </div>
         </div>
 
         <!--<div class="calculator">
@@ -54,6 +79,7 @@
     </div>
     <div id="footer">Impressum</div>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="js/js.cookie.min.js"></script>
     <script src="js/piecon.min.js"></script>
     <script src="js/timetrack.js"></script>
   </body>
