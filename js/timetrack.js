@@ -35,13 +35,14 @@ $(document).ready(function() {
         if (Math.round(percent_done) < 100) {
           $("#time_progress").css("width", percent_done+"%");
           $("#finishing_in").html("in&nbsp;"+pad(remaining_time.getUTCHours())+"&nbsp;Stunden "+pad(remaining_time.getUTCMinutes())+"&nbsp;Minuten ");
+          $("title").text(pad(remaining_time.getUTCHours())+":"+pad(remaining_time.getUTCMinutes())+" bis Feierabend");
         } else {
+          percent_done = 100;
           $("#time_progress").css("width", "100%");
           remaining_time = new Date(now-end_time);
           $("#finishing_in").html("vor&nbsp;"+pad(remaining_time.getUTCHours())+"&nbsp;Stunden "+pad(remaining_time.getUTCMinutes())+"&nbsp;Minuten ");
-
+          $("title").text(pad(remaining_time.getUTCHours())+":"+pad(remaining_time.getUTCMinutes())+" seit Feierabend");
         }
-        $("title").text(pad(remaining_time.getUTCHours())+":"+pad(remaining_time.getUTCMinutes())+" bis Feierabend");
 
         Piecon.setOptions({
             color: '#848788', // Pie chart color
