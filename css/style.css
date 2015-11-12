@@ -178,7 +178,7 @@ div.control hr {
 }
 
 div.output {
-  padding-top:20px;
+  padding-top:35px;
   /*float: right;*/
   text-align:center;
   margin: auto;
@@ -271,4 +271,10 @@ div.share .label {
 .inputgroup {
   margin:0 0 10px;
   padding: 0 0 0 20px;
+}
+
+.featherlight-content * {
+  font-weight:300;
+  color:#000000;
+  text-shadow: none;
 }
