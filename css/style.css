@@ -1,9 +1,9 @@
 html {
   padding: 0;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #ffffff;
-  font-weight:200;
+  font-weight:300;
   font-size:18px;
   background: #000000 url("../bg/back.jpg") 50% 50% no-repeat;
   background-size: cover;
@@ -50,10 +50,9 @@ body {
   margin:0;
 }
 h1 {
-  font-weight: 100;
-  text-align: left;
+  font-weight:300;
   margin:0;
-  font-size: 48px;
+  font-size: 38px;
 }
 #footer {
   position: absolute;
@@ -62,10 +61,21 @@ h1 {
   font-size:12px;
   background-color:#000000;
 }
+
 div.container {
-  height:100%;
-  position: relative;
+  transition: height 0.8s;
+  position:fixed;
+  height:300px;
+  width:100%;
+  top: -250px;
 }
+
+div.container.full {
+  position: relative;
+  height:100%;
+  top: auto;
+}
+
 div.content {
   margin: 0;
   position: absolute;               /* 2 */
@@ -74,10 +84,14 @@ div.content {
   background-color: rgba(255,255,255,0.07);
   width:100%;
   padding: 0;
+  height:300px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-width: 1px 0 1px 0;
 }
 div.definition {
   padding:40px 0 35px 120px;
   float:left;
+  display:none;
 }
 
 div.calculator {
@@ -85,43 +99,86 @@ div.calculator {
 }
 
 div.control {
-  position:relative;
+  position:absolute;
   float:right;
   background-color: rgba(255,255,255,0.0);
-  height:212px;
+  height:235px;
+  right:0;
   margin: 0;
   width:0;
   overflow:hidden;
   text-align:center;
-  transition: width 0.32s, padding 0.32s, background-color 0.32s;
+  transition: width 0.32s, padding 0.32s, background-color 0.32s, border-left 0.32s;
   white-space: nowrap;
   text-align:left;
-  padding:20px 0 20px 30px;
+  padding:45px 0 20px 30px;
+  border-left: 1px solid rgba(255,255,255,0.0);
 }
 
 div.control .handle {
   transition: opacity 0.32s;
   position:absolute;
-  top:115px;
+  top:144px;
   left:7px;
 }
 div.control input {
-  width:30px;
+  width:38px;
+  background-color: rgba(0,0,0,0.4);
+  border:1px solid #ffffff;
+  color:#ffffff;
+  padding:4px;
+  font-size:18px;
+  font-family: 'Lato', sans-serif;
+  margin-left:6px;
 }
 
-div.control:hover {
-  width:120px;
-  background-color: rgba(255,255,255,0.1);
+div.control .inputspacer {
+  width:16px;
+  display:inline-block;
 }
 
-div.control:hover .handle {
-  opacity: 0;
+div.control.preview {
+  width:180px;
+  background-color: rgba(0,0,0,0.8);
+  border-left: 1px solid rgba(255,255,255,0.15);
 }
+
+@media only screen and (min-width: 768px) {
+    html {
+      font-weight:100;
+    }
+    div.control:hover,
+    div.control.preview {
+      background-color: rgba(255,255,255,0.1);
+      width:180px;
+      border-left: 1px solid rgba(255,255,255,0.15);
+    }
+
+    div.control:hover .handle,
+    div.control.preview .handle {
+      opacity: 0;
+    }
+}
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+  html {
+    font-weight:300;
+  }
+  .time {
+    font-weight:100;
+  }
+}
+
+div.control hr {
+  margin-left: -20px;
+  color: #ffffff;
+}
+
 div.output {
   padding-top:20px;
-  float: right;
+  /*float: right;*/
   text-align:center;
-  margin-right: 120px;
+  margin: auto;
+  width:300px;
 }
 
 div.output .time {
@@ -134,9 +191,9 @@ div.output .details {
 
 div.output div.progressbar {
   width:100%;
-  background-color:#ffffff;
+  background-color:rgba(255,255,255,0.3);
   height:2px;
-  border: 1px solid #ffffff;
+  border: 1px solid rgba(255,255,255,0.6);
   margin: 26px 0 8px;
 }
 
@@ -148,8 +205,9 @@ div.output div.progressbar div.progress {
 
 div.social {
   margin-top:20px;
+  margin-bottom: 16px;
   font-size:22px;
-  opacity: 0.1;
+  opacity: 0.2;
   transition: opacity 0.32s;
   height:36px;
 }
@@ -168,7 +226,7 @@ div.share i {
   cursor: pointer;
 }
 
-div.share a {
+a {
   color: #ffffff;
 }
 
@@ -204,4 +262,9 @@ div.share .label {
 
 .description i {
   margin-right:30px;
+}
+
+.inputgroup {
+  margin:0 0 10px;
+  padding: 0 0 0 20px;
 }
