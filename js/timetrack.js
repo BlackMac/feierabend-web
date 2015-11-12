@@ -56,7 +56,7 @@ $(document).ready(function() {
     update();
   });
   window.setTimeout(function() {
-      $("div.control").removeClass("preview")
+      $("div.control").removeClass("preview");
     }, 1500);
 
   var tock = true;

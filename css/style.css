@@ -68,6 +68,7 @@ div.container {
   height:300px;
   width:100%;
   top: -250px;
+  padding-bottom:1px;
 }
 
 div.container.full {
@@ -157,6 +158,9 @@ div.control.preview {
     div.control:hover .handle,
     div.control.preview .handle {
       opacity: 0;
+    }
+    div.container {
+        padding-bottom:0;
     }
 }
 @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
