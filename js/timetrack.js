@@ -33,7 +33,8 @@ $(document).ready(function() {
   $(".handle").click(function() { $(".control").toggleClass("preview")});
   $("input:text").blur(function() { $(this).val(pad($(this).val())) } );
   $("input:text").focus(function() { $(this).select(); } );
-  $("input:text").keyup(function () {
+  $("input:text").keyup(function (event) {
+    if (event.which == 9) return;
     if (this.value.length == this.maxLength) {
       $(this).nextAll('input:text').focus();
     }
