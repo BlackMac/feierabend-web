@@ -13,20 +13,17 @@ function currentTime() {
 function timeUpNotification() {
   if (!("Notification" in window)) return;
   if (Notification.permission === "granted") {
-    // If it's okay let's create a notification
     var notification = new Notification("Endlich Feierabend!");
   }
 }
 function timeUpNotificationSetup() {
   if (!("Notification" in window)) {
-    console.log("No notifications available");
     return;
   }
   else if (Notification.permission === "granted") {
   }
   else if (Notification.permission !== 'denied') {
     Notification.requestPermission(function (permission) {
-      // If the user accepts, let's create a notification
     });
   }
 }

@@ -91,7 +91,8 @@ $(document).ready(function() {
     });
     tock=!tock;
     Piecon.setProgress(percent_done);
-    if (end_time-now <= 0) {
+    var remaining = end_time-now;
+    if (remaining <= 0 && remaining >= -2000) {
       if (!notificationShown) {
         notificationShown = true;
         timeUpNotification();
