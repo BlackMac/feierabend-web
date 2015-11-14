@@ -26,6 +26,8 @@ function storeDefaults() {
 }
 
 $(document).ready(function() {
+  var notificationShown = false;
+  timeUpNotificationSetup();
   fillFields();
 
   $(".handle").click(function() { $(".control").toggleClass("preview")});
@@ -89,6 +91,14 @@ $(document).ready(function() {
     });
     tock=!tock;
     Piecon.setProgress(percent_done);
+    if (end_time-now <= 0) {
+      if (!notificationShown) {
+        notificationShown = true;
+        timeUpNotification();
+      }
+    } else {
+      notificationShown = false;
+    }
   };
   update();
   setInterval(update, 1000);
