@@ -103,7 +103,7 @@ div.control {
   position:absolute;
   float:right;
   background-color: rgba(255,255,255,0.0);
-  height:235px;
+  height:280px;
   right:0;
   margin: 0;
   width:0;
@@ -112,7 +112,7 @@ div.control {
   transition: width 0.32s, padding 0.32s, background-color 0.32s, border-left 0.32s;
   white-space: nowrap;
   text-align:left;
-  padding:45px 0 20px 30px;
+  padding:0 0 20px 30px;
   border-left: 1px solid rgba(255,255,255,0.0);
 }
 
@@ -144,41 +144,13 @@ div.control.preview {
   border-left: 1px solid rgba(255,255,255,0.15);
 }
 
-@media only screen and (min-width: 768px) {
-    html {
-      font-weight:100;
-    }
-    div.control:hover,
-    div.control.preview {
-      background-color: rgba(255,255,255,0.1);
-      width:180px;
-      border-left: 1px solid rgba(255,255,255,0.15);
-    }
-
-    div.control:hover .handle,
-    div.control.preview .handle {
-      opacity: 0;
-    }
-    div.container {
-        padding-bottom:0;
-    }
-}
-@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
-  html {
-    font-weight:300;
-  }
-  .time {
-    font-weight:100;
-  }
-}
-
 div.control hr {
   margin-left: -20px;
   color: #ffffff;
 }
 
 div.output {
-  padding-top:35px;
+  padding-top:20px;
   /*float: right;*/
   text-align:center;
   margin: auto;
@@ -273,8 +245,52 @@ div.share .label {
   padding: 0 0 0 20px;
 }
 
+div.featherlight-content {
+  background:rgba(255, 255, 255, 0.9) !important;
+  border-radius: 4px;
+}
+
+div.featherlight-content textarea{
+  background-color:transparent;
+}
+
+
 .featherlight-content * {
   font-weight:300;
   color:#000000;
   text-shadow: none;
+}
+
+#share textarea {
+  width: 100%;
+  height:80px;
+}
+
+
+@media only screen and (min-width: 768px) {
+    html {
+      font-weight:100;
+    }
+    div.control:hover,
+    div.control.preview {
+      background-color: rgba(255,255,255,0.1);
+      width:180px;
+      border-left: 1px solid rgba(255,255,255,0.15);
+    }
+
+    div.control:hover .handle,
+    div.control.preview .handle {
+      opacity: 0;
+    }
+    div.container {
+        padding-bottom:0;
+    }
+}
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+  html {
+    font-weight:300;
+  }
+  .time {
+    font-weight:100;
+  }
 }

@@ -34,11 +34,15 @@
           <a href="javascript:"><i class="fa fa-pencil-square-o handle"></i></a>
           <p>
             Ankunft:<br>
-            <div class="inputgroup"><input type="text" id="hour_in" maxlength="2"><span class="inputspacer">&nbsp;: </span><input type="text" id="minute_in" maxlength="2"></div>
+            <div class="inputgroup"><input type="text" id="hours-arrival" maxlength="2"><span class="inputspacer">&nbsp;: </span><input type="text" id="minutes-arrival" maxlength="2"></div>
           </p>
           <p>
             Arbeitszeit:<br>
-            <div class="inputgroup"><input type="text" id="hours_required" value="8" maxlength="2"><span class="inputspacer">&nbsp;h </span><input type="text" id="minutes_required" value="0" maxlength="2"> min</div>
+            <div class="inputgroup"><input type="text" id="hours-scheduled" value="08" maxlength="2"><span class="inputspacer">&nbsp;h </span><input type="text" id="minutes-scheduled" value="00" maxlength="2"> min</div>
+          </p>
+          <p>
+            Pause:<br>
+            <div class="inputgroup"><input type="text" id="hours-break" value="00" maxlength="2"><span class="inputspacer">&nbsp;h </span><input type="text" id="minutes-break" value="30" maxlength="2"> min</div>
           </p>
         </div>
         <div class="output">
@@ -46,11 +50,11 @@
           <span class="time" id="finishing_at">18:44</span><br>
           <div class="progressbar"><div class="progress" id="time_progress"></div></div>
           <span class="details" id="finishing_in">in 4 Stunden 23 Minuten</span>
-          <!--<div class="social">
+          <div class="social">
             <div class="share">
-              <i class="fa fa-share-square-o"></i>
+              <a href="#" data-featherlight="#share"><i class="fa fa-share-square-o"></i></a>
               <span class="label">nach <strong>Feierabend</strong> verabreden</span>
-            </div>-->
+            </div>
           </div>
         </div>
 
@@ -61,11 +65,18 @@
         </div>-->
       </div>
     </div>
+    <div id="share">
+      <textarea>Ich habe heute um 16 Uhr Feierabend. /via @timetrackme</textarea>
+      <i class="fa fa-twitter-square"></i>
+      <i class="fa fa-facebook-square"></i>
+      <i class="fa fa-envelope-square"></i>
+    </div>
     <div id="footer"><a href="impressum.html" data-featherlight="ajax">Impressum</a> • <a href="datenschutz.html" data-featherlight="ajax">Datenschutz</a></div>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="js/js.cookie.min.js"></script>
-    <script src="js/piecon.min.js"></script>
-    <script src="js/featherlight.min.js"></script>
+    <script src="js/lib/js.cookie.min.js"></script>
+    <script src="js/lib/piecon.min.js"></script>
+    <script src="js/lib/featherlight.min.js"></script>
+    <script src="js/timetrack/helpers.js"></script>
     <script src="js/timetrack.js"></script>
   </body>
 </html>

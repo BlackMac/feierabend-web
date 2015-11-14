@@ -1,53 +1,35 @@
-function pad(num) {
-    if ((num+"").length <2) {
-        return "0"+num;
-    }
-    return num;
+function getScheduledSeconds() {
+  minutesScheduled = 0;
+  minutesScheduled += parseInt($("#hours-scheduled").val())*60;
+  minutesScheduled += parseInt($("#minutes-scheduled").val());
+  minutesScheduled += parseInt($("#hours-break").val())*60;
+  minutesScheduled += parseInt($("#minutes-break").val());
+  return minutesScheduled*60000;
 }
 
-function startTime() {
-  var now = new Date();
-  return now;
-}
-function startHours(hours) {
-  if (hours) {
-    Cookies.set('startHours', hours);
-  }
-  var startHours = Cookies.get('startHours') || startTime().getHours();
-  return parseInt(startHours);
+function fillFields() {
+  $("#hours-arrival").val(pad(setup.arrival.hours())+"");
+  $("#minutes-arrival").val(pad(setup.arrival.minutes())+"");
+  $("#hours-scheduled").val(pad(setup.scheduled.hours())+"");
+  $("#minutes-scheduled").val(pad(setup.scheduled.minutes())+"");
+  $("#hours-break").val(pad(setup.break.hours())+"");
+  $("#minutes-break").val(pad(setup.break.minutes())+"");
 }
 
-function startMinutes(minutes) {
-  if (minutes) {
-    Cookies.set('startMinutes', minutes);
-  }
-  var startMinutes = Cookies.get('startMinutes') || startTime().getHours();
-  return parseInt(startMinutes)
+function storeDefaults() {
+  setup.arrival.hours($("#hours-arrival").val());
+  setup.arrival.minutes($("#minutes-arrival").val());
+  setup.scheduled.hours($("#hours-scheduled").val());
+  setup.scheduled.minutes($("#minutes-scheduled").val());
+  setup.break.hours($("#hours-break").val());
+  setup.break.minutes($("#minutes-break").val());
 }
 
-function requiredHours(hours) {
-  if (hours) {
-    Cookies.set('requiredHours', hours);
-  }
-  var requiredHours = Cookies.get('requiredHours') || 8;
-  return parseInt(requiredHours);
-}
-
-function requiredMinutes(minutes) {
-  if (minutes) {
-    Cookies.set('requiredMinutes', minutes);
-  }
-  var requiredMinutes = Cookies.get('requiredMinutes') || 0;
-  return parseInt(requiredMinutes)
-}
 $(document).ready(function() {
-  /*$(document).scroll(function() {
-    if ($(this).scrollTop()>250) {
-      $(".container").removeClass("full");
-    }
-  });*/
+  fillFields();
 
   $(".handle").click(function() { $(".control").toggleClass("preview")});
+  $("input:text").blur(function() { $(this).val(pad($(this).val())) } );
   $("input:text").focus(function() { $(this).select(); } );
   $("input:text").keyup(function () {
     if (this.value.length == this.maxLength) {
@@ -61,11 +43,6 @@ $(document).ready(function() {
 
   var tock = true;
 
-  $("#hour_in").val(startHours());
-  $("#minute_in").val(startMinutes());
-  $("#hours_required").val(requiredHours);
-  $("#minutes_required").val(requiredMinutes);
-
   Piecon.setOptions({
       color: '#0f2231', // Pie chart color
       background: '#ffffff', // Empty pie chart color
@@ -73,26 +50,24 @@ $(document).ready(function() {
       fallback: false // Toggles displaying percentage in the title bar (possible values - true, false, 'force')
   });
   var update = function() {
-    startHours($("#hour_in").val());
-    startMinutes($("#minute_in").val());
-    requiredHours($("#hours_required").val());
-    requiredMinutes($("#minutes_required").val());
+    storeDefaults();
 
     var now = new Date();
-    var in_time = new Date();
-    in_time.setHours($("#hour_in").val());
-    in_time.setMinutes($("#minute_in").val());
-    in_time.setSeconds(0);
+    var arrivalTime = new Date();
+    arrivalTime.setHours($("#hours-arrival").val());
+    arrivalTime.setMinutes($("#minutes-arrival").val());
+    arrivalTime.setSeconds(0);
 
-    var required_time = new Date((parseInt($("#hours_required").val())*60+parseInt($("#minutes_required").val()))*60000);
-    var elapsed = (now - in_time);
+
+    var required_time = new Date(getScheduledSeconds());
+    var elapsed = (now - arrivalTime);
     var diff = new Date(elapsed);
-    var end_time = new Date(in_time.getTime() + required_time.getTime());
+    var end_time = new Date(arrivalTime.getTime() + required_time.getTime());
     var remaining_time = new Date(end_time-now);
 
     var percent_done=(required_time-remaining_time)/required_time*100;
 
-    $("#in_time").html(pad(diff.getUTCHours())+" Stunden<br>"+pad(diff.getUTCMinutes())+" Minuten<br>"+pad(diff.getUTCSeconds())+ " Sekunden");
+    $("#hours-arrival").html(pad(diff.getUTCHours())+" Stunden<br>"+pad(diff.getUTCMinutes())+" Minuten<br>"+pad(diff.getUTCSeconds())+ " Sekunden");
     $("#finishing_at").text(pad(end_time.getHours())+":"+pad(end_time.getMinutes()));
     if (Math.round(percent_done) < 100) {
       $("#time_progress").css("width", percent_done+"%");
