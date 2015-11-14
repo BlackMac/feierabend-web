@@ -12,17 +12,8 @@
   <body>
     <div class="container full">
       <div class="content animated zoomInDown">
-        <div class="definition">
-          <h1>Feierabend</h1>
-          <p class="pronounciation">
-            /ˈfaɪ̯ɐˌʔaːbənt/
-          </p>
-          <p class="category">
-            Substantiv
-          </p>
-          <p class="description">
-            <i class="fa fa-info-circle"></i> Zeitspanne oder Zeitpunkt des Arbeitsendes
-          </p>
+        <div class="navi">
+          Home &bull; Registrieren &bull; Login
         </div>
         <div class="control preview">
           <a href="javascript:"><i class="fa fa-pencil-square-o handle"></i></a>
@@ -39,11 +30,13 @@
             <div class="inputgroup"><input type="text" id="hours-break" value="00" maxlength="2"><span class="inputspacer">&nbsp;h </span><input type="text" id="minutes-break" value="30" maxlength="2"> min</div>
           </p>
         </div>
-        <div class="output">
-          <h1>Feierabend</h1>
-          <span class="time" id="finishing_at">18:44</span><br>
-          <div class="progressbar"><div class="progress" id="time_progress"></div></div>
-          <span class="details" id="finishing_in">in 4 Stunden 23 Minuten</span>
+        <div class="output-container">
+          <div class="output"
+            <h1>Feierabend</h1>
+            <span class="time" id="finishing_at">18:44</span><br>
+            <div class="progressbar"><div class="progress" id="time_progress"></div></div>
+            <span class="details" id="finishing_in">in 4 Stunden 23 Minuten</span>
+          </div>
         </div>
       </div>
     </div>
@@ -53,9 +46,15 @@
       <i class="fa fa-facebook-square"></i>
       <i class="fa fa-envelope-square"></i>
     </div>
+    <div class="page">
+      <h2>Voranmeldung für die Betaversion<h2>
+      <form>
+        <label>Email:</label><input type="mail"></input>
+      </form>
+    </div>
+
     <div id="footer"><a href="impressum.html" data-featherlight="ajax">Impressum</a> • <a href="datenschutz.html" data-featherlight="ajax">Datenschutz</a></div>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
     <!-- JS -->
     <script src="js/lib/js.cookie.min.js"></script>
     <script src="js/lib/piecon.js"></script>

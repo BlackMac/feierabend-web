@@ -30,6 +30,14 @@ $(document).ready(function() {
   timeUpNotificationSetup();
   fillFields();
 
+  $(window).scroll(function(){
+    if($(document).scrollTop() > 20) {
+      $(".content").addClass("fix");
+    } else {
+      $(".content").removeClass("fix");
+    }
+  });
+
   $(".handle").click(function() { $(".control").toggleClass("preview")});
   $("input:text").blur(function() { $(this).val(pad($(this).val())) } );
   $("input:text").focus(function() { $(this).select(); } );
