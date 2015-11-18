@@ -1,17 +1,32 @@
+<?php
+  $title = "Wann ist Feierabend?";
+  if (isset($_GET['t'])) {
+    $time = intval($_GET['t']);
+    $time = sprintf("%04d", $time);
+    $realtime = substr($time, 0, 2).":".substr($time, 2, 2);
+    $title = "Ich habe um ".$realtime." Feierabend";
+  }
+?>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Wann ist Feierabend?</title>
-    <meta property="og:url"           content="http://www.timetrack.me" />
+    <title><?php echo $title?></title>
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@timetrackme" />
+
     <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Ich habe um 17:30 Feierabend" />
-    <meta property="og:description"   content="Mit timetrack me kannst du das beobachten..." />
+    <meta property="og:title"         content="<?php echo $title?>" />
+    <meta property="og:image"         content="http://timetrack.me/img/<?php echo $time?>.png" />
+    <meta property="og:image:type"    content="image/png" />
+    <meta property="og:image:width"   content="700" />
+    <meta property="og:image:height"  content="400" />
+    <meta property="og:description"   content="Wann kannst du endlich nach Hause?" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,300,100' rel='stylesheet' type='text/css'>
-  <link href='css/hideshare.css' rel='stylesheet' type='text/css'>
   <link href='css/animate.css' rel='stylesheet' type='text/css'>
   <link href='css/style.css' rel='stylesheet' type='text/css'>
   <link href='css/featherlight.min.css' rel='stylesheet' type='text/css'>
@@ -54,9 +69,8 @@
         <div class="social">
           <a href="javascript:"><i class="fa fa-share-square"></i> Teilen</a>
           <div class="networks">
-            <a href="javascript:share_fb('http://www.timetrack.me/');"><i class="fa fa-facebook-square"></i></a>
-            <i class="fa fa-twitter-square"></i>
-            <i class="fa fa-envelope-square"></i>
+            <a href="javascript:" class="link-share-fb"><i class="fa fa-facebook-square"></i></a>
+            <a href="javascript:" class="link-share-twitter"><i class="fa fa-twitter-square"></i></a>
           </div>
         </div>
       </div>
@@ -68,7 +82,6 @@
     <!-- JS -->
     <script src="js/lib/js.cookie.min.js"></script>
     <script src="js/lib/piecon.js"></script>
-    <script src="js/lib/hideshare.min.js"></script>
     <script src="js/lib/featherlight.min.js"></script>
     <script src="js/timetrack/helpers.js"></script>
     <script src="js/timetrack.js"></script>

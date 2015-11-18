@@ -8,7 +8,6 @@ function getScheduledSeconds() {
 }
 
 function share_fb(url) {
-  window.open('https://www.facebook.com/sharer/sharer.php?u='+url,'facebook-share-dialog',"width=626,height=436")
 }
 
 function fillFields() {
@@ -35,6 +34,19 @@ $(document).ready(function() {
   fillFields();
   $("div.social").click(function() {
     $("div.social .networks").toggleClass("visible");
+  });
+  var finish = "1700";
+
+  $(".link-share-fb").click(function() {
+    var url="http://timetrack.me/"+finish;
+
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url),'facebook-share-dialog',"width=626,height=436")
+  });
+  $(".link-share-twitter").click(function() {
+    var finish_hr = [finish.slice(0, 2), ":", finish.slice(2)].join('');
+    var url="Ich habe heute um "+finish_hr+" Feierabend. http://timetrack.me/"+finish+" /via @timetrackme";
+
+    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(url),'twitter-share-dialog',"width=626,height=436")
   });
   $(".handle").click(function() { $(".control").toggleClass("preview")});
   $("input:text").blur(function() { $(this).val(pad($(this).val())) } );
@@ -75,6 +87,7 @@ $(document).ready(function() {
     var remaining_time = new Date(end_time-now);
 
     var percent_done=(required_time-remaining_time)/required_time*100;
+    finish = pad(end_time.getHours())+""+pad(end_time.getMinutes());
 
     $("#hours-arrival").html(pad(diff.getUTCHours())+" Stunden<br>"+pad(diff.getUTCMinutes())+" Minuten<br>"+pad(diff.getUTCSeconds())+ " Sekunden");
     $("#finishing_at").text(pad(end_time.getHours())+":"+pad(end_time.getMinutes()));
