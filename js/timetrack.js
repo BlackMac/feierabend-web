@@ -7,6 +7,10 @@ function getScheduledSeconds() {
   return minutesScheduled*60000;
 }
 
+function share_fb(url) {
+  window.open('https://www.facebook.com/sharer/sharer.php?u='+url,'facebook-share-dialog',"width=626,height=436")
+}
+
 function fillFields() {
   $("#hours-arrival").val(pad(setup.arrival.hours())+"");
   $("#minutes-arrival").val(pad(setup.arrival.minutes())+"");
@@ -29,7 +33,9 @@ $(document).ready(function() {
   var notificationShown = false;
   timeUpNotificationSetup();
   fillFields();
-
+  $("div.social").click(function() {
+    $("div.social .networks").toggleClass("visible");
+  });
   $(".handle").click(function() { $(".control").toggleClass("preview")});
   $("input:text").blur(function() { $(this).val(pad($(this).val())) } );
   $("input:text").focus(function() { $(this).select(); } );

@@ -2,3 +2,4 @@ bg/bg*.*
 
 node_modules
 build
+bower_components

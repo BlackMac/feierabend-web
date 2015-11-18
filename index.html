@@ -2,10 +2,16 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Wann ist Feierabend?</title>
+    <meta property="og:url"           content="http://www.timetrack.me" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Ich habe um 17:30 Feierabend" />
+    <meta property="og:description"   content="Mit timetrack me kannst du das beobachten..." />
+
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,300,100' rel='stylesheet' type='text/css'>
+  <link href='css/hideshare.css' rel='stylesheet' type='text/css'>
   <link href='css/animate.css' rel='stylesheet' type='text/css'>
   <link href='css/style.css' rel='stylesheet' type='text/css'>
   <link href='css/featherlight.min.css' rel='stylesheet' type='text/css'>
@@ -45,20 +51,24 @@
           <div class="progressbar"><div class="progress" id="time_progress"></div></div>
           <span class="details" id="finishing_in">in 4 Stunden 23 Minuten</span>
         </div>
+        <div class="social">
+          <a href="javascript:"><i class="fa fa-share-square"></i> Teilen</a>
+          <div class="networks">
+            <a href="javascript:share_fb('http://www.timetrack.me/');"><i class="fa fa-facebook-square"></i></a>
+            <i class="fa fa-twitter-square"></i>
+            <i class="fa fa-envelope-square"></i>
+          </div>
+        </div>
       </div>
     </div>
-    <div id="share" style="display:none">
-      <textarea>Ich habe heute um 16 Uhr Feierabend. /via @timetrackme</textarea>
-      <i class="fa fa-twitter-square"></i>
-      <i class="fa fa-facebook-square"></i>
-      <i class="fa fa-envelope-square"></i>
-    </div>
+
     <div id="footer"><a href="impressum.html" data-featherlight="ajax">Impressum</a> • <a href="datenschutz.html" data-featherlight="ajax">Datenschutz</a></div>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
     <!-- JS -->
     <script src="js/lib/js.cookie.min.js"></script>
     <script src="js/lib/piecon.js"></script>
+    <script src="js/lib/hideshare.min.js"></script>
     <script src="js/lib/featherlight.min.js"></script>
     <script src="js/timetrack/helpers.js"></script>
     <script src="js/timetrack.js"></script>
