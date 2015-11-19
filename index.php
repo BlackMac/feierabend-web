@@ -1,4 +1,10 @@
 <?php
+  if($_SERVER['SERVER_NAME'] != 'timetrack.me') {
+  	header("HTTP/1.1 301 Moved Permanently");
+  	header("Location: http://timetrack.me");
+  	exit;
+  }
+
   $title = "Wann ist Feierabend?";
   if (isset($_GET['t'])) {
     $time = intval($_GET['t']);
