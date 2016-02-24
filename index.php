@@ -1,5 +1,5 @@
 <?php
-  if($_SERVER['SERVER_NAME'] != 'timetrack.me') {
+  if($_SERVER['SERVER_NAME'] != 'timetrack.me' && $_SERVER['SERVER_NAME'] != 'dev.timetrack.me') {
   	header("HTTP/1.1 301 Moved Permanently");
   	header("Location: http://timetrack.me");
   	exit;
@@ -76,10 +76,13 @@
           </p>
         </div>
         <div class="output">
-          <h1>Feierabend</h1>
+          <div class="nav nav-right nav-disabled"><i class="fa fa-arrow-right"></i></div>
+          <div class="nav nav-left"><i class="fa fa-arrow-left"></i></div>
+          <h1>Feierabend Heute</h1>
           <span class="time" id="finishing_at">18:44</span><br>
           <div class="progressbar"><div class="progress" id="time_progress"></div></div>
           <span class="details" id="finishing_in">in 4 Stunden 23 Minuten</span>
+
         </div>
         <div class="social">
           <a href="javascript:"><i class="fa fa-share-square"></i> Teilen</a>

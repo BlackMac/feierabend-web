@@ -32,6 +32,52 @@ $(document).ready(function() {
   var notificationShown = false;
   timeUpNotificationSetup();
   fillFields();
+  $(".nav-left").click(function() {
+    $('<div class="popover-wrapper"><div class="popover">\
+      <h3>We should have a history together</h3>\
+      <p>Sign up for <strong>timetrack.me plus</strong> to store your history.</p>\
+      <ul>\
+        <li>Detailed analytics and statistics</li>\
+        <li>SMS, mail or push when it\'s time to leave.</li>\
+        <li>Location based check in &amp; out.</li>\
+      </ul>\
+      <div class="slider-container"><div class="slider">\
+        <div class="price-box">\
+          <div class="price">\
+            $ 19.99\
+            <span class="description">per year</span>\
+          </div>\
+          <div class="price">\
+            $ 1.99\
+            <span class="description">per month</span>\
+          </div>\
+        </div>\
+        <div class="signup">\
+          <form action="#">\
+            <label for="email-signup">We are sorry, but we did not launch timetrack.me plus yet.\
+            Sign up here to be informed when we do and get <strong>six full months of timetrack.me plus free.</strong></label>\
+            <br><br>\
+            <div class="formrow"><input type="text" name="email-signup" id="email-signup" placeholder="your@email.com" \\>\
+            <button type="submit">sign up</button></div><br>\
+          </form>\
+        </div>\
+      </div></div>\
+      <a href="#" class="optout">I don\'t need timetrack.me plus.</a>\
+    </div></div>')
+      .appendTo("body")
+      .click(function(e) {
+        if(e.target != this) return;
+        $('.popover-wrapper').remove();
+      });
+    $('.price').click(function() {
+      $('.slider').addClass("position2");
+    });
+    $('.optout').click(function() {
+      $('.popover-wrapper').remove();
+    });
+    $('.popover-wrapper').fadeIn(320);
+    //$(wrapper).append('<div class="popover"></div>');
+  });
   $("div.social").click(function() {
     $("div.social .networks").toggleClass("visible");
   });
