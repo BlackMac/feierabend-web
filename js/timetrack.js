@@ -33,6 +33,7 @@ $(document).ready(function() {
   timeUpNotificationSetup();
   fillFields();
   $(".nav-left").click(function() {
+    ga('send', 'event', 'Intent', 'Click', 'DayBack');
     $('<div class="popover-wrapper"><div class="popover">\
       <h3>We should have a history together</h3>\
       <p>Sign up for <strong>timetrack.me plus</strong> to store your history.</p>\
@@ -53,12 +54,12 @@ $(document).ready(function() {
           </div>\
         </div>\
         <div class="signup">\
-          <form action="#">\
+          <form action="//timetrack.us5.list-manage.com/subscribe/post?u=82b0c888e7f8cce9d1ba2371a&amp;id=a1e803a1e1" method="post" target="_blank">\
             <label for="email-signup">We are sorry, but we did not launch timetrack.me plus yet.\
             Sign up here to be informed when we do and get <strong>six full months of timetrack.me plus free.</strong></label>\
             <br><br>\
-            <div class="formrow"><input type="text" name="email-signup" id="email-signup" placeholder="your@email.com" \\>\
-            <button type="submit">sign up</button></div><br>\
+            <div class="formrow"><input type="email" id="email-signup" name="EMAIL" placeholder="your@email.com" \\>\
+            <button type="submit">subscribe</button></div><br>\
           </form>\
         </div>\
       </div></div>\
@@ -67,18 +68,22 @@ $(document).ready(function() {
       .appendTo("body")
       .click(function(e) {
         if(e.target != this) return;
+        ga('send', 'event', 'Intent', 'Click', 'OptOut', 'Outside');
         $('.popover-wrapper').remove();
       });
     $('.price').click(function() {
+      ga('send', 'event', 'Intent', 'Click', 'SelectPrice', this.innerText);
       $('.slider').addClass("position2");
     });
     $('.optout').click(function() {
+      ga('send', 'event', 'Intent', 'Click', 'OptOut', 'Link');
       $('.popover-wrapper').remove();
     });
     $('.popover-wrapper').fadeIn(320);
     //$(wrapper).append('<div class="popover"></div>');
   });
   $("div.social").click(function() {
+    ga('send', 'event', 'Intent', 'Click', 'ShareSocial');
     $("div.social .networks").toggleClass("visible");
   });
   var finish = "1700";
