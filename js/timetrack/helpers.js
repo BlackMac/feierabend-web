@@ -13,7 +13,7 @@ function currentTime() {
 function timeUpNotification() {
   if (!("Notification" in window)) return;
   if (Notification.permission === "granted") {
-    var notification = new Notification("Endlich Feierabend!");
+    new Notification("Endlich Feierabend!");
   }
 }
 function timeUpNotificationSetup() {
